@@ -1,3 +1,89 @@
 <resources>
-    <string name="app_name">CustomerInfo</string>
+    <string name="app_name">信息收集</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- 下拉刷新 上拉载入更多 -->
+    <string name="pullrefresh_listview_header_hint_normal">下拉即可刷新……</string>
+    <string name="pullrefresh_listview_header_hint_ready">释放即可刷新……</string>
+    <string name="pullrefresh_listview_header_hint_loading">正在加载,请等待…</string>
+    <string name="pullrefresh_listview_footer_hint_normal">向上拖拽、点击查看更多</string>
+    <string name="pullrefresh_listview_footer_hint_ready">松开载入更多</string>
+    <string name="recomm_prefecture_video_erro">视频播放错误，请重试!</string>
+    <string name="str_tip_wifi">网络提示</string>
+    <string name="str_confirm_no_wifi">当前为移动网络,确定继续播放？</string>
+    <string name="str_confirm_no_wifi_download">当前为移动网络,确定下载？</string>
+    <string name="str_ok_no_wifi">确定</string>
+    <string name="str_cancle_no_wifi">取消</string>
+    <!--登录-->
+    <string name="str_login_code_hint">请输入营业部代码</string>
+    <string name="str_login_username_hint">请输入用户名</string>
+    <string name="str_login_pwd_hint">请输入密码</string>
+    <!--注册-->
+    <string name="str_regist_agent_name_hint">请输入姓名</string>
+    <string name="str_regist_agent_code_hint">请输入营业部代码</string>
+    <string name="str_regist_agent_username_hint">请输入用户名(6-20位英文字母，数字)</string>
+    <string name="str_regist_agent_phone_hint">请输入手机号</string>
+    <string name="str_regist_agent_yanzhengcode_hint">请输入验证码</string>
+    <string name="str_regist_pwd_again_hint">再次输入密码</string>
+    <string name="register_activity_tip1">请填写手机号码</string>
+    <string name="register_activity_tip2">手机号位数不正确</string>
+    <string name="register_activity_tip3"> 请输入正确的手机号</string>
+
+    <string name="cursorVisible">true</string>
+    <string name="say_something">  说点什么</string>
+    <string name="viewpager_indicator">%1$d/%2$d</string>
+
+
+    <!--增员-->
+    <string name="count_today">今日报名</string>
+    <string name="count_total">累计报名</string>
+    <string name="count_today_share">今日转发</string>
+    <string name="count_total_share">累计转发</string>
+
+    <!--我的-->
+    <string name="my_share">我的分享</string>
+    <string name="my_download">我的下载</string>
+    <string name="potential_client">潜在客户</string>
+    <string name="my_setting">我的设置</string>
+    <string name="department_manage">营业部管理</string>
+
+    <!--设置-->
+    <string name="reset_password">更改密码</string>
+    <string name="about_us">关于我们</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="bind_phone">手机绑定</string>
+    <string name="exit_login">退出登录</string>
+    <string name="hint_password">请输入新密码（6-20位英文字母、数字）</string>
+    <string name="hint_confirm_password">请确认密码（6-20位英文字母、数字）</string>
+    <string name="get_code">获取验证码</string>
+    <string name="confirm">确定</string>
+    <string name="hint_login_password">请输入登录密码</string>
+    <string name="member_manage">人员管理</string>
+    <string name="increase_member_manage">增员活动管理</string>
+    <!--下载-->
+    <string name="str_confirm_del">确认删除吗？</string>
+    <string name="str_click_wait_thread">已经达到最大下载量，请稍后</string>
+    <string name="password_less_alert">密码格式不正确</string>
+    <string name="phone_same_alert">新手机号不能与老手机号相同</string>
+    <string name="passwords_not_same_alert">两次输入密码不一致</string>
+    <string name="password_again_alert">请再次输入密码</string>
+    <string name="sign_hint">限制20个字</string>
+    <string name="old_password_alert">请输入原始密码</string>
+    <string name="reset_password_success">密码修改成功</string>
+    <string name="bind_mobile_success">手机绑定成功</string>
+    <string name="password_error">密码输入不正确</string>
+
+    <!--关于我们-->
+    <string name="company_introduce">公司简介</string>
+    <string name="company_detail">东方华尔金融咨询有限责任公司是国内最早致力于金融实务人才培养及研究的机构，目前东方华尔业已形成拥有金融教育、人才战略服务、金融出版与传媒、金融会展、高端金融服务平台等多元业务板块，可为各类金融客户提供全方位优质服务的综合性企业。</string>
+    <string name="app_introduce">超级营业部简介</string>
+    <string name="app_detail">超级营业部一直致力于研究保险行业特色内训课程体系的研发，并专注于帮助商业保险公司建立核心竞争优势和长期稳定的发展。以保险公司培训需求为导向，本着因市场而变的原则，创建以专业金融知识及提升从业人员综合素质为导向的特色课程体系，覆盖保险公司各个层级，进而全面提升保险公司的绩效，并提供个性化的解决方案。</string>
+    <string name="course_introduce">超级营业部课程特色</string>
+    <string name="course_detail">考虑到现代保险的发展模式与经营理念，结合科研、教学和实践等领域的资源和优势，把握学术前沿，同时紧密联系我国保险市场上的发展动向，重点突出专业知识与实践培养的双重提高，为不同岗位的保险从业人员提供具有高度针对性的培训计划。</string>
+    <!--增员-->
+    <string name="increat_number_back">您还未编辑标题及展示图,无法\n进行保存，返回上级页面？</string>
+    <string name="sign_name">这家伙真懒，什么也没留下！</string>
+    <string name="versions_update_tip">%1$s已经升至%2$s版本\n%3$s</string>
+    <string name="no_find_versions_name">没有找到版本号</string>
 </resources>

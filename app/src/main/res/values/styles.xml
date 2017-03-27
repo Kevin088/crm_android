@@ -7,5 +7,290 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!--activity的全局动画  -->
+    <style name="ActivityTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <!--activity的全局关闭动画设置  -->
+    <style name="AnimationActivity" parent="@android:style/Animation.Translucent">
+        <item name="android:windowExitAnimation">@anim/right_out</item>
+    </style>
+    <!--黑色字体-->
+    <style name="black_18sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="black_20sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="black_14sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="black_little_14sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_little</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="black_little_13sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_little</item>
+        <item name="android:textSize">13sp</item>
+    </style>
 
+    <style name="black_low_8_12sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_8</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 黑色中字体 -->
+    <style name="FontStyleNormalBlackMid" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_8</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 浅黑色中字体 -->
+    <style name="FontStyleNormalLowBlackMid" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_9</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 浅黑色中小字体 -->
+    <style name="FontStyleNormalSmallBlackMiddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_4</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <!-- 浅黑色中小字体 2-->
+    <style name="FontStyleNormalSmallBlackMiddle_2" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_little</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="black_low_3_15sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_3</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="black_low_5_14sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_5</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="black_low_10_14sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_10</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="black_low_6_11sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_6</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="black_low_1_15sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_1</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="black_low_7_14sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_low_7</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--蓝色大字体-->
+    <style name="blue_15sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <!--浅蓝色小字体-->
+    <style name="dark_blue_12sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/blue_my</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--深蓝色小字体-->
+    <style name="blue_low_1_12sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/blue_low_1</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <!-- 浅灰字体 -->
+    <style name="grey_30sp">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/grey_low_4</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    <!-- 中浅灰字体 -->
+    <style name="FontStyleNormalGrayMiddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey_little_1</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="tip_dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/black_more_half</item>
+        <!-- 背景透明 -->
+    </style>
+    <style name="FontStyleTitleBaseMidddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 稍大深灰字体 -->
+    <style name="FontStyleNormalGrayerBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_dark_grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="trandialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+    </style>
+    <!-- Toast -->
+    <style name="Toast">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/write</item>
+    </style>
+    <!-- 白色大大字体 -->
+    <style name="FontStyleBoldWhiteBigBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+    <!-- 白色大字体 -->
+    <style name="FontStyleNormalWhiteBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- 白色中字体 -->
+    <style name="FontStyleNormalWhiteMid" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 白色小字体 -->
+    <style name="FontStyleNormalWhiteSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="write_12sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="write_13sp">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/write</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+    <!-- 灰色中小字体 -->
+    <style name="FontStyleNormalGreySmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey_low_13</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <!-- 深灰色小字体 -->
+    <style name="FontStyleNormalDarkGreySmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey_low_14</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 深灰色小小字体 -->
+    <style name="FontStyleNormalDarkGreySmallSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey_low_14</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <!-- 深深灰色小小字体 -->
+    <style name="FontStyleNormalGreyGreySmallSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <!-- 深深灰色小字体 -->
+    <style name="FontStyleNormalGreyGreySmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 黄色小字体 -->
+    <style name="FontStyleNormalYellowSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 黄色中字体 -->
+    <style name="FontStyleNormalYellowMid" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 黄色大字体 -->
+    <style name="FontStyleNormalYellowBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 黄色小小字体 -->
+    <style name="FontStyleNormalYellowSmallSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <!-- 绿色小字体 -->
+    <style name="FontStyleNormalGreenSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 绿色小小字体 -->
+    <style name="FontStyleNormalGreenSmallSmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <!--红色小小字体-->
+    <style name="red_low_1_11sp" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/red_low_1</item>
+        <item name="android:textSize">11sp</item>
+    </style>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 全局Activity进入动画执行时间 -->
+    <integer name="activity_anim_in_time">220</integer>
+    <!-- 全局Activity退出动画执行时间 -->
+    <integer name="activity_anim_out_time">250</integer>
+</resources>

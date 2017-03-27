@@ -2,4 +2,35 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="main_title_padding">0dp</dimen>
+    <dimen name="main_title">50dp</dimen>
+    <dimen name="main_tab">50dp</dimen>
+    <dimen name="media_controller_view_height">45dip</dimen>
+    <dimen name="dp_5">5dip</dimen>
+    <dimen name="dp_8">8dip</dimen>
+    <dimen name="dp_10">10dip</dimen>
+    <dimen name="dp_15">15dip</dimen>
+    <dimen name="dp_16">16dip</dimen>
+    <dimen name="dp_20">20dip</dimen>
+    <dimen name="dp_25">25dip</dimen>
+    <dimen name="dp_30">30dip</dimen>
+    <dimen name="dp_34">34dip</dimen>
+    <dimen name="dp_35">35dip</dimen>
+    <dimen name="dp_40">40dip</dimen>
+    <dimen name="dp_43">43dip</dimen>
+    <dimen name="dp_45">45dip</dimen>
+    <dimen name="dp_46">46dip</dimen>
+    <dimen name="dp_53">53dip</dimen>
+    <dimen name="dp_56">56dip</dimen>
+    <dimen name="dp_69">69dip</dimen>
+    <dimen name="dp_70">70dip</dimen>
+    <dimen name="dp_75">75dip</dimen>
+    <dimen name="dp_78">78dip</dimen>
+    <dimen name="dp_80">80dip</dimen>
+    <dimen name="dp_86">86dip</dimen>
+    <dimen name="dp_90">90dip</dimen>
+    <dimen name="dp_100">100dip</dimen>
+    <dimen name="dp_150">150dip</dimen>
+    <dimen name="dp_200">200dip</dimen>
+
 </resources>
