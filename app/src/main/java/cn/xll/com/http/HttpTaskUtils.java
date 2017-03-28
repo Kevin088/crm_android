@@ -63,4 +63,10 @@ public class HttpTaskUtils {
     public void login(Subscriber<ResponseBody>subscriber, String username,String password){
         SetObservable(myService.login(username,password),subscriber);
     }
+    /**
+     * 全部客户信息列表
+     */
+    public void allCustomerInfo(Subscriber<ResponseBody>subscriber, int page,int districtId){
+        SetObservable(myService.allCustomerInfo(page,districtId),subscriber);
+    }
 }

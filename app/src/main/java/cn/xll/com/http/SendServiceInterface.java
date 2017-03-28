@@ -23,4 +23,9 @@ public interface SendServiceInterface {
      */
     @GET("app/loginApp")
     Observable<ResponseBody>login(@Query("username") String username,@Query("password") String password);
+    /**
+     * 登录
+     */
+    @GET("app/customerInfoListByDistrictId")
+    Observable<ResponseBody>allCustomerInfo(@Query("page") int page,@Query("district_id") int districtId);
 }

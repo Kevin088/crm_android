@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.xll.com.fragment.FirstFragment">
+    <cn.xll.com.ui.widget.TitleBarView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </cn.xll.com.ui.widget.TitleBarView>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_list"
+        android:layout_below="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
