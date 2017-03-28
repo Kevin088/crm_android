@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.xll.com.R;
 import cn.xll.com.fragment.FirstFragment;
+import cn.xll.com.fragment.SecondFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -42,7 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private FragmentManager fragmentManager;
     private FirstFragment shareFragment;
-    private FirstFragment increateMemberFragment;
+    private SecondFragment increateMemberFragment;
     private FirstFragment myFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         fragmentManager = getSupportFragmentManager();
         shareFragment = new FirstFragment();
-        increateMemberFragment = new FirstFragment();
+        increateMemberFragment = new SecondFragment();
         myFragment = new FirstFragment();
         fragments = new Fragment[]{shareFragment, increateMemberFragment, myFragment};
         fragmentManager.beginTransaction().add(R.id.layout_main, shareFragment)

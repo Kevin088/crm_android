@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TipDialog"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TipTrueDialog"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bg_dialog_my"
+        android:gravity="center"
+        android:paddingTop="10dip" >
+
+        <TextView
+            android:id="@+id/DialogTitle"
+            style="@style/FontStyleTitleBaseMidddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dip"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="@color/blue"
+            android:visibility="gone"/>
+
+        <View
+            android:id="@+id/Line1"
+            android:layout_width="240dip"
+            android:layout_height="2px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/DialogTitle"
+            android:layout_marginTop="10dip"
+            android:background="@color/blue"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/DialogText"
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="17dip"
+            android:layout_below="@+id/Line1"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="3dp"
+            android:gravity="center"
+            android:maxHeight="250dip" />
+
+        <View
+            android:id="@+id/Line2"
+            android:layout_width="300dip"
+            android:layout_height="1px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/DialogText"
+            android:layout_marginTop="17dip"
+            android:background="@color/divide_line" />
+
+        <Button
+            android:id="@+id/DialogOk"
+            style="@style/FontStyleNormalGrayerBig"
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Line2"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_dialog_my"
+            android:gravity="center"
+            android:paddingBottom="13dip"
+            android:paddingTop="13dip"
+            android:text="确定"
+            android:visibility="gone"
+            android:textColor="@drawable/tip_dialog_ok_btn"
+             />
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayoutTwo"
+            android:layout_width="300dip"
+            android:layout_height="49dip"
+            android:layout_below="@+id/Line2"
+            android:background="@drawable/bg_dialog_my"
+            >
+
+            <Button
+                android:id="@+id/TwoDialogCancel"
+                style="@style/FontStyleNormalGrayerBig"
+                android:layout_width="150dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/bg_dialog_btn"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@drawable/tip_dialog_ok_btn" />
+
+            <View
+                android:id="@+id/Line3"
+                android:layout_width="1px"
+                android:layout_height="49dip"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/TwoDialogCancel"
+                android:background="@color/divide_line" />
+
+            <Button
+                android:id="@+id/TwoDialogOk"
+                style="@style/FontStyleNormalGrayerBig"
+                android:layout_width="150dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/Line3"
+                android:background="@drawable/bg_dialog_btn"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@drawable/tip_dialog_ok_btn" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

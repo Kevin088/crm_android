@@ -66,7 +66,13 @@ public class HttpTaskUtils {
     /**
      * 全部客户信息列表
      */
-    public void allCustomerInfo(Subscriber<ResponseBody>subscriber, int page,int districtId){
-        SetObservable(myService.allCustomerInfo(page,districtId),subscriber);
+    public void allCustomerInfo(Subscriber<ResponseBody>subscriber, int page,int districtId,int userId){
+        SetObservable(myService.allCustomerInfo(page,districtId,userId),subscriber);
+    }
+    /**
+     * 添加
+     */
+    public void addCustomerInfo(Subscriber<ResponseBody>subscriber, RequestBody jsonParams){
+        SetObservable(myService.addCustomerInfo(jsonParams),subscriber);
     }
 }

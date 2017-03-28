@@ -50,7 +50,7 @@ public class DateUtils {
      * long转字符串
      */
     public static String LongToStrData(long time){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date date=new Date(time);
             return format.format(date);
@@ -76,5 +76,12 @@ public class DateUtils {
             return time.substring(5,7);
         }
         return "";
+    }
+    /**
+     * Date转字符串
+     */
+    public static String DateToStrData(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
     }
 }

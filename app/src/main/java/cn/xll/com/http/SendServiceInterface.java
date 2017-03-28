@@ -27,5 +27,11 @@ public interface SendServiceInterface {
      * 登录
      */
     @GET("app/customerInfoListByDistrictId")
-    Observable<ResponseBody>allCustomerInfo(@Query("page") int page,@Query("district_id") int districtId);
+    Observable<ResponseBody>allCustomerInfo(@Query("page") int page,@Query("district_id") int districtId,@Query("username_id") int userId);
+
+    /**
+     * 添加
+     */
+    @POST("app/addCustomerInfo")
+    Observable<ResponseBody>addCustomerInfo(@Body RequestBody jsonParams);
 }

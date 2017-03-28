@@ -2,17 +2,25 @@ package cn.xll.com.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.xll.com.R;
+import cn.xll.com.activity.PublishActivity;
 import cn.xll.com.adapter.AllCustomerAdapter;
 import cn.xll.com.bean.CustomerInfo;
 import cn.xll.com.config.DfhePreference;
@@ -22,17 +30,10 @@ import cn.xll.com.ui.widget.TitleBarView;
 import cn.xll.com.utils.GsonUtils;
 import cn.xll.com.utils.ToastManager;
 
-import android.support.v7.widget.RecyclerView;
-
-import com.chad.library.adapter.base.BaseQuickAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailSub.OnHttpResquestCallBack, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFailSub.OnHttpResquestCallBack, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, TitleBarView.OnTitleBarClickListener{
     @InjectView(R.id.titleBar)
     TitleBarView titleBar;
     @InjectView(R.id.lv_list)
@@ -61,22 +62,26 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
 
     public void initLayout(){
         dialog=new ProgressDialog(getActivity());
-        titleBar.withTitle("客户信息",0);
+        titleBar.withTitle("客户信息",0).withRightImage(R.mipmap.ic_share_publish);
         titleBar.setTitleBarBackground(R.color.yellow);
         titleBar.setMiddleTextColor(R.color.write);
+        titleBar.setOnTitleBarClickListener(this);
         adapter=new AllCustomerAdapter(R.layout.item_all_info,list,getContext());
         adapter.setOnLoadMoreListener(this);
         lvList.setLayoutManager(new LinearLayoutManager(getActivity()));
         lvList.setAdapter(adapter);
         swipeList.setOnRefreshListener(this);
         adapter.openLoadAnimation();
-
         loadData();
+
     }
     @Override
     protected void loadData() {
         dialog.show();
-        HttpTaskUtils.getInstence().allCustomerInfo(new OnSuccessAndFailSub(1,this),pageIndex, Integer.parseInt(DfhePreference.getDistrictId()),0);
+        HttpTaskUtils.getInstence().allCustomerInfo(new OnSuccessAndFailSub(1,this),
+                pageIndex,
+                Integer.parseInt(DfhePreference.getDistrictId()),
+                Integer.parseInt(DfhePreference.getUserId()));
     }
 
     @Override
@@ -90,6 +95,7 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
         dialog.cancel();
         CustomerInfo customerInfo=GsonUtils.fromJson(data,CustomerInfo.class);
         if(customerInfo!=null&&customerInfo.getObj()!=null){
+            pageCount=customerInfo.getPageCount();
             if(pageIndex==1){
                 list.clear();
                 list.addAll(customerInfo.getObj());
@@ -129,4 +135,10 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
         loadData();
         swipeList.setRefreshing(false);
     }
+
+    @Override
+    public void onTitleBarClick(int titleId) {
+        startActivity(new Intent(getContext(), PublishActivity.class));
+    }
+
 }

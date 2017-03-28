@@ -93,7 +93,7 @@
     <style name="black_low_6_11sp">
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/black_low_6</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">13sp</item>
     </style>
 
     <style name="black_low_1_15sp">

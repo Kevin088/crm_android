@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@color/write">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +20,7 @@
             android:layout_height="wrap_content"
             style="@style/black_low_5_14sp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_5"
             android:text="姓名:"/>
         <TextView
             android:id="@+id/name"
@@ -25,15 +30,7 @@
             android:layout_toRightOf="@+id/nametxt"
             android:maxLength="10"
             android:layout_centerVertical="true"
-            android:text="小明"/>
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            style="@style/FontStyleNormalGrayMiddle"
-            android:layout_centerVertical="true"
-            android:text="2010-10-10"/>
+            android:text=""/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -46,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/black_low_5_14sp"
+            android:layout_marginRight="@dimen/dp_5"
             android:text="住址:"/>
         <TextView
             android:id="@+id/address"
@@ -53,7 +51,7 @@
             android:layout_height="wrap_content"
             style="@style/black_low_6_11sp"
             android:layout_toRightOf="@+id/addresstxt"
-            android:text="地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址"/>
+            android:text=""/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -67,6 +65,7 @@
             android:layout_height="wrap_content"
             style="@style/black_low_5_14sp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_5"
             android:text="县分:"/>
         <TextView
             android:id="@+id/district"
@@ -76,7 +75,7 @@
             android:layout_toRightOf="@+id/districttxt"
             android:maxLength="20"
             android:layout_centerVertical="true"
-            android:text="县分县分县分县分县分县分县分县分县分"/>
+            android:text=""/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,6 +90,7 @@
             android:layout_height="wrap_content"
             style="@style/black_low_5_14sp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_5"
             android:text="发布者:"/>
         <TextView
             android:id="@+id/publisher"
@@ -98,13 +98,34 @@
             android:layout_height="wrap_content"
             style="@style/black_low_6_11sp"
             android:layout_toRightOf="@+id/publishertxt"
-            android:maxLength="20"
+            android:maxLength="10"
             android:ellipsize="end"
             android:layout_centerVertical="true"
-            android:text="发布者发布者发布者发发布者布者发布者发布者发布者发布者发布者发布者"/>
+            android:text=""/>
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            style="@style/FontStyleNormalGrayMiddle"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
+            android:text="2010-10-10"/>
+        <TextView
+            android:id="@+id/timetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/FontStyleNormalGrayMiddle"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/time"
+            android:textSize="12sp"
+            android:layout_marginRight="@dimen/dp_5"
+            android:text="发布日期:"/>
+
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/divide_line_share_thump"/>
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

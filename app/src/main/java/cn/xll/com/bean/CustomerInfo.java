@@ -1,5 +1,6 @@
 package cn.xll.com.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -76,7 +77,7 @@ public class CustomerInfo {
         this.obj = obj;
     }
 
-    public static class ObjBean {
+    public static class ObjBean implements Serializable{
         private String address;
         private int broadband;
         private String broadbandEndTime;
