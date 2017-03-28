@@ -27,9 +27,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivZhanyeImage;
     private TextView tvZhanyeText;
 
-    private RelativeLayout learnPage;
-    private ImageView ivLearn;
-    private TextView tvLearn;
 
     private RelativeLayout share;
     private ImageView ivShare;
@@ -46,7 +43,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentManager fragmentManager;
     private FirstFragment shareFragment;
     private FirstFragment increateMemberFragment;
-    private FirstFragment learnFragment;
     private FirstFragment myFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,20 +59,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         share = (RelativeLayout) findViewById(R.id.layout_main_share);
         ivShare = (ImageView) share.findViewById(R.id.iv_tab_image);
         tvShare = (TextView) share.findViewById(R.id.tv_tab_name);
-        tvShare.setText("晨会圈");
+        tvShare.setText("所有的");
         share.setOnClickListener(this);
 
         zhanye = (RelativeLayout) findViewById(R.id.layout_main_zhanye);
         ivZhanyeImage = (ImageView) zhanye.findViewById(R.id.iv_tab_image);
         tvZhanyeText = (TextView) zhanye.findViewById(R.id.tv_tab_name);
-        tvZhanyeText.setText("增员");
+        tvZhanyeText.setText("我发布");
         zhanye.setOnClickListener(this);
-
-        learnPage = (RelativeLayout) findViewById(R.id.layout_main_learn);
-        ivLearn = (ImageView) learnPage.findViewById(R.id.iv_tab_image);
-        tvLearn = (TextView) learnPage.findViewById(R.id.tv_tab_name);
-        tvLearn.setText("学习");
-        learnPage.setOnClickListener(this);
 
         my = (RelativeLayout) findViewById(R.id.layout_main_my);
         ivMy = (ImageView) my.findViewById(R.id.iv_tab_image);
@@ -88,13 +78,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentManager = getSupportFragmentManager();
         shareFragment = new FirstFragment();
         increateMemberFragment = new FirstFragment();
-        learnFragment = new FirstFragment();
         myFragment = new FirstFragment();
-        fragments = new Fragment[]{shareFragment, increateMemberFragment, learnFragment, myFragment};
+        fragments = new Fragment[]{shareFragment, increateMemberFragment, myFragment};
         fragmentManager.beginTransaction().add(R.id.layout_main, shareFragment)
-                .add(R.id.layout_main, increateMemberFragment).add(R.id.layout_main, learnFragment).add(R.id.layout_main, myFragment).commitAllowingStateLoss();
-        fragmentManager.beginTransaction().hide(myFragment)
-                .hide(learnFragment).hide(increateMemberFragment).show(shareFragment).commitAllowingStateLoss();
+                .add(R.id.layout_main, increateMemberFragment).add(R.id.layout_main, myFragment).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().hide(myFragment).hide(increateMemberFragment).show(shareFragment).commitAllowingStateLoss();
     }
 
     @Override
@@ -106,11 +94,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.layout_main_zhanye:
                 showDummy(1);
                 break;
-            case R.id.layout_main_learn:
-                showDummy(2);
-                break;
             case R.id.layout_main_my:
-                showDummy(3);
+                showDummy(2);
                 break;
             default:
                 break;
@@ -139,9 +124,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 tvZhanyeText.setTextColor(ColorUnselected);
                 ivZhanyeImage.setImageResource(R.mipmap.ic_zhanye_checkno);
 
-                tvLearn.setTextColor(ColorUnselected);
-                ivLearn.setImageResource(R.mipmap.ic_learn_checkno);
-
                 tvMy.setTextColor(ColorUnselected);
                 ivMy.setImageResource(R.mipmap.ic_myno);
 
@@ -153,9 +135,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 tvZhanyeText.setTextColor(ColorSelected);
                 ivZhanyeImage.setImageResource(R.mipmap.ic_zhanye_check);
 
-                tvLearn.setTextColor(ColorUnselected);
-                ivLearn.setImageResource(R.mipmap.ic_learn_checkno);
-
                 tvMy.setTextColor(ColorUnselected);
                 ivMy.setImageResource(R.mipmap.ic_myno);
                 break;
@@ -165,22 +144,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 tvZhanyeText.setTextColor(ColorUnselected);
                 ivZhanyeImage.setImageResource(R.mipmap.ic_zhanye_checkno);
-
-                tvLearn.setTextColor(ColorSelected);
-                ivLearn.setImageResource(R.mipmap.ic_learn_check);
-
-                tvMy.setTextColor(ColorUnselected);
-                ivMy.setImageResource(R.mipmap.ic_myno);
-                break;
-            case 3:
-                tvShare.setTextColor(ColorUnselected);
-                ivShare.setImageResource(R.mipmap.ic_main_unshare);
-
-                tvZhanyeText.setTextColor(ColorUnselected);
-                ivZhanyeImage.setImageResource(R.mipmap.ic_zhanye_checkno);
-
-                tvLearn.setTextColor(ColorUnselected);
-                ivLearn.setImageResource(R.mipmap.ic_learn_checkno);
 
                 tvMy.setTextColor(ColorSelected);
                 ivMy.setImageResource(R.mipmap.ic_my);

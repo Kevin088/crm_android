@@ -29,9 +29,6 @@
                 android:id="@+id/layout_main_zhanye"
                 layout="@layout/main_page_tab_layout" />
             <include
-                android:id="@+id/layout_main_learn"
-                layout="@layout/main_page_tab_layout" />
-            <include
                 android:id="@+id/layout_main_my"
                 layout="@layout/main_page_tab_layout" />
         </LinearLayout>
