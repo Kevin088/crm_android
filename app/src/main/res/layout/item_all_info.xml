@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/write">
     <LinearLayout
+        android:id="@+id/layout_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -128,4 +128,26 @@
         android:layout_height="0.5dp"
         android:background="@color/divide_line_share_thump"/>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_10">
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/delete"
+            android:layout_marginRight="@dimen/dp_20"
+            style="@style/FontStyleNormalYellowMid"
+            android:text="编辑"/>
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            style="@style/FontStyleNormalYellowMid"
+            android:text="删除"/>
+    </RelativeLayout>
 </RelativeLayout>

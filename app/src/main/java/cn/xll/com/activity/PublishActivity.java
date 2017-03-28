@@ -11,6 +11,8 @@ import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.orhanobut.logger.Logger;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,6 +23,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import cn.xll.com.R;
 import cn.xll.com.bean.CustomerInfo;
+import cn.xll.com.bean.DataSynEvent;
 import cn.xll.com.config.DfhePreference;
 import cn.xll.com.http.HttpTaskUtils;
 import cn.xll.com.http.OnSuccessAndFailSub;
@@ -110,11 +113,15 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
     private CustomerInfo.ObjBean objBean=new CustomerInfo.ObjBean();
 
 
+    CustomerInfo.ObjBean bean;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
         ButterKnife.inject(this);
+
+        bean= (CustomerInfo.ObjBean) getIntent().getSerializableExtra("bean");
+
         initLayout();
     }
     public void initLayout(){
@@ -124,6 +131,33 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
         titleBar.setMiddleTextColor(R.color.write);
         titleBar.setRightTextColor(R.color.write);
         titleBar.setOnTitleBarClickListener(this);
+
+        //编辑
+        if(bean!=null){
+            name.setText(bean.getName());
+            telephone.setText(bean.getTelephone());
+            address.setText(bean.getAddress());
+            iscompute.setText(SupoffUtils.formatIsOrNo(bean.getIscompute()));
+            broadband.setText(SupoffUtils.formatBroadband(bean.getBroadband()));
+            broadbandSatisfy.setText(SupoffUtils.formatBroadbandSatisfy(bean.getBroadbandSatisfy()));
+            isBroadbandFusion.setText(SupoffUtils.formatIsOrNo(bean.getIsBroadbandFusion()));
+            broadbandPrice.setText(bean.getBroadbandPrice()+"");
+            broadbandEndTime.setText(bean.getBroadbandEndTime());
+
+            tv.setText(SupoffUtils.formatTv(bean.getTv()));
+            tvSatisfy.setText(SupoffUtils.formatBroadbandSatisfy(bean.getTvSatisfy()));
+            tvPrice.setText(bean.getTvPrice()+"");
+            tvEndTime.setText(bean.getTvEndTime());
+
+            iscomputeValue=bean.getIscompute();
+            broadbandValue=bean.getBroadband();
+            broadbandSatisfyValue=bean.getBroadbandSatisfy();
+            isBroadbandFusionValue=bean.getIsBroadbandFusion();
+            tvValue=bean.getTv();
+            tvSatisfyValue=bean.getTv();
+
+            objBean.setId(bean.getId());
+        }
     }
 
     @Override
@@ -192,7 +226,10 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
     public void sendServer(){
         dialog.show();
         RequestBody requestBody=ParamsUtils.paramsParse(objBean);
-        HttpTaskUtils.getInstence().addCustomerInfo(new OnSuccessAndFailSub(1,this),requestBody);
+        if(bean==null)
+            HttpTaskUtils.getInstence().addCustomerInfo(new OnSuccessAndFailSub(1,this),requestBody);
+        else
+            HttpTaskUtils.getInstence().updateCustomerInfo(new OnSuccessAndFailSub(1,this),requestBody);
     }
 
 
@@ -323,7 +360,6 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
         optionsItems.add("电信");
         optionsItems.add("移动");
         optionsItems.add("联通");
-        optionsItems.add("移动");
         optionsItems.add("广电");
         optionsItems.add("卫星电视接收器");
         optionsItems.add("无");
@@ -385,6 +421,7 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
     public void OnSuccessResult(int requestCode, String data) {
         dialog.cancel();
         ToastManager.showShortToast("发布成功");
+        EventBus.getDefault().post(new DataSynEvent());
         finish();
     }
 

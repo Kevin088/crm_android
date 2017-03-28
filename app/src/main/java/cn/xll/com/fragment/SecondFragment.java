@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +27,7 @@ import cn.xll.com.R;
 import cn.xll.com.activity.PublishActivity;
 import cn.xll.com.adapter.AllCustomerAdapter;
 import cn.xll.com.bean.CustomerInfo;
+import cn.xll.com.bean.DataSynEvent;
 import cn.xll.com.config.DfhePreference;
 import cn.xll.com.http.HttpTaskUtils;
 import cn.xll.com.http.OnSuccessAndFailSub;
@@ -58,6 +63,7 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initLayout();
+        EventBus.getDefault().register(this);
     }
 
     public void initLayout(){
@@ -66,7 +72,7 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
         titleBar.setTitleBarBackground(R.color.yellow);
         titleBar.setMiddleTextColor(R.color.write);
         titleBar.setOnTitleBarClickListener(this);
-        adapter=new AllCustomerAdapter(R.layout.item_all_info,list,getContext());
+        adapter=new AllCustomerAdapter(R.layout.item_all_info,list,getContext(),true);
         adapter.setOnLoadMoreListener(this);
         lvList.setLayoutManager(new LinearLayoutManager(getActivity()));
         lvList.setAdapter(adapter);
@@ -135,7 +141,10 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
         loadData();
         swipeList.setRefreshing(false);
     }
-
+    @Subscribe(threadMode = ThreadMode.MAIN) //在ui线程执行
+    public void onDataSynEvent(DataSynEvent event) {
+        onRefresh();
+    }
     @Override
     public void onTitleBarClick(int titleId) {
         startActivity(new Intent(getContext(), PublishActivity.class));

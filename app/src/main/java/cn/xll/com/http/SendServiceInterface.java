@@ -34,4 +34,15 @@ public interface SendServiceInterface {
      */
     @POST("app/addCustomerInfo")
     Observable<ResponseBody>addCustomerInfo(@Body RequestBody jsonParams);
+    /**
+     * 删除
+     */
+    @GET("app/delCustomerInfoByUserId")
+    Observable<ResponseBody>delCustomerInfo(@Query("id") int id);
+    /**
+     * 更新
+     */
+    @POST("app/updateCustomerInfoByUserId")
+    Observable<ResponseBody>updateCustomerInfo(@Body RequestBody jsonParams);
+
 }

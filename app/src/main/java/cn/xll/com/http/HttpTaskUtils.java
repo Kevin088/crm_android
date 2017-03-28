@@ -75,4 +75,16 @@ public class HttpTaskUtils {
     public void addCustomerInfo(Subscriber<ResponseBody>subscriber, RequestBody jsonParams){
         SetObservable(myService.addCustomerInfo(jsonParams),subscriber);
     }
+    /**
+     * 删除
+     */
+    public void delCustomerInfo(Subscriber<ResponseBody>subscriber,  int id){
+        SetObservable(myService.delCustomerInfo(id),subscriber);
+    }
+    /**
+     * 添加
+     */
+    public void updateCustomerInfo(Subscriber<ResponseBody>subscriber, RequestBody jsonParams){
+        SetObservable(myService.updateCustomerInfo(jsonParams),subscriber);
+    }
 }
