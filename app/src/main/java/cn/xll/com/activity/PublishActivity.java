@@ -131,7 +131,7 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
         titleBar.setMiddleTextColor(R.color.write);
         titleBar.setRightTextColor(R.color.write);
         titleBar.setOnTitleBarClickListener(this);
-
+        district.setText(DfhePreference.getDistrictName());
         //编辑
         if(bean!=null){
             name.setText(bean.getName());
@@ -157,6 +157,8 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
             tvSatisfyValue=bean.getTv();
 
             objBean.setId(bean.getId());
+
+            district.setText(bean.getDistrictName());
         }
     }
 

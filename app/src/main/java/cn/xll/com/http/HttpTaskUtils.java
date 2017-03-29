@@ -87,4 +87,16 @@ public class HttpTaskUtils {
     public void updateCustomerInfo(Subscriber<ResponseBody>subscriber, RequestBody jsonParams){
         SetObservable(myService.updateCustomerInfo(jsonParams),subscriber);
     }
+    /**
+     * 修改密码
+     */
+    public void changePwd(Subscriber<ResponseBody>subscriber,int id,String pwd){
+        SetObservable(myService.changePwd(id,pwd),subscriber);
+    }
+    /**
+     * 获取所属县分
+     */
+    public void getDistrictById(Subscriber<ResponseBody>subscriber,int id){
+        SetObservable(myService.getDistrictById(id),subscriber);
+    }
 }

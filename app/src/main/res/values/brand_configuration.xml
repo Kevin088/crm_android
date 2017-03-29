@@ -3,5 +3,6 @@
 <!--
     <string name="base_url">http://192.168.42.2:8080/crm/</string>
 -->
-    <string name="base_url">http://192.168.1.108:8080/crm/</string>
+    <string name="base_url">http://192.168.8.101:8080/crm/</string>
+    <!--<string name="base_url">http://101.200.238.155:80/crm/</string>-->
 </resources>

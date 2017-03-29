@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -11,13 +13,24 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.xll.com.R;
+import cn.xll.com.app.SupoffApp;
+import cn.xll.com.bean.District;
+import cn.xll.com.config.DfhePreference;
 import cn.xll.com.fragment.FirstFragment;
+import cn.xll.com.fragment.MyFragment;
 import cn.xll.com.fragment.SecondFragment;
+import cn.xll.com.http.HttpTaskUtils;
+import cn.xll.com.http.OnSuccessAndFailSub;
+import cn.xll.com.utils.GsonUtils;
+import cn.xll.com.utils.ToastManager;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, OnSuccessAndFailSub.OnHttpResquestCallBack {
 
     private int ColorSelected;
     private int ColorUnselected;
@@ -44,7 +57,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentManager fragmentManager;
     private FirstFragment shareFragment;
     private SecondFragment increateMemberFragment;
-    private FirstFragment myFragment;
+    private MyFragment myFragment;
+    private boolean isExit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +94,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentManager = getSupportFragmentManager();
         shareFragment = new FirstFragment();
         increateMemberFragment = new SecondFragment();
-        myFragment = new FirstFragment();
+        myFragment = new MyFragment();
         fragments = new Fragment[]{shareFragment, increateMemberFragment, myFragment};
         fragmentManager.beginTransaction().add(R.id.layout_main, shareFragment)
                 .add(R.id.layout_main, increateMemberFragment).add(R.id.layout_main, myFragment).commitAllowingStateLoss();
         fragmentManager.beginTransaction().hide(myFragment).hide(increateMemberFragment).show(shareFragment).commitAllowingStateLoss();
+
+        HttpTaskUtils.getInstence().getDistrictById(new OnSuccessAndFailSub(1,this), Integer.parseInt(DfhePreference.getUserId()));
     }
 
     @Override
@@ -152,5 +169,51 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click();
+            return false;
+        } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exitBy2Click() {
+        Timer timer = null;
+        if (!isExit) {
+            isExit = true;
+            ToastManager.showShortToast("再按一次退出程序");
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            }, 2000);
+        } else {
+            SupoffApp.clearAllActivity();
+        }
+    }
+
+    @Override
+    public void OnSuccessResult(int requestCode, String data) {
+        if(!TextUtils.isEmpty(data)){
+            District district= GsonUtils.fromJson(data,District.class);
+            if(district!=null&&district.getObj()!=null){
+                DfhePreference.setDistrictName(district.getObj().getDictName());
+            }else{
+                DfhePreference.setDistrictName("");
+            }
+        }
+    }
+
+    @Override
+    public void OnFailResult(int requestCode, String errorMsg) {
+
     }
 }

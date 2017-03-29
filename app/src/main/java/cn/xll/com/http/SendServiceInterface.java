@@ -44,5 +44,14 @@ public interface SendServiceInterface {
      */
     @POST("app/updateCustomerInfoByUserId")
     Observable<ResponseBody>updateCustomerInfo(@Body RequestBody jsonParams);
-
+    /**
+     * 修改密码
+     */
+    @GET("app/changePwd")
+    Observable<ResponseBody>changePwd(@Query("id") int id,@Query("password") String pwd);
+    /**
+     * 获取所属县分
+     */
+    @GET("app/getDistrictByUseId")
+    Observable<ResponseBody>getDistrictById(@Query("id") int id);
 }
