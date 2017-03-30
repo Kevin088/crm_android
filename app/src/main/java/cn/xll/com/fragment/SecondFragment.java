@@ -3,6 +3,7 @@ package cn.xll.com.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -49,7 +50,6 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
     int pageIndex=1;
     int pageCount;
 
-    private List<CustomerInfo.ObjBean>list=new ArrayList<CustomerInfo.ObjBean>();
     private AllCustomerAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,13 +72,16 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
         titleBar.setTitleBarBackground(R.color.yellow);
         titleBar.setMiddleTextColor(R.color.write);
         titleBar.setOnTitleBarClickListener(this);
-        adapter=new AllCustomerAdapter(R.layout.item_all_info,list,getContext(),true);
+        adapter=new AllCustomerAdapter(R.layout.item_all_info,new ArrayList<CustomerInfo.ObjBean>(),getContext(),true);
         adapter.setOnLoadMoreListener(this);
         lvList.setLayoutManager(new LinearLayoutManager(getActivity()));
         lvList.setAdapter(adapter);
         swipeList.setOnRefreshListener(this);
         adapter.openLoadAnimation();
         loadData();
+
+        adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        swipeList.setColorSchemeColors(Color.rgb(47, 223, 189));
 
     }
     @Override
@@ -103,13 +106,14 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
         if(customerInfo!=null&&customerInfo.getObj()!=null){
             pageCount=customerInfo.getPageCount();
             if(pageIndex==1){
-                list.clear();
-                list.addAll(customerInfo.getObj());
-                adapter.notifyDataSetChanged();
+                adapter.setNewData(customerInfo.getObj());
             }else{
-                list.addAll(customerInfo.getObj());
-                adapter.addData(list);
+                adapter.addData(customerInfo.getObj());
                 adapter.loadMoreComplete();
+            }
+
+            if(pageIndex>=pageCount){
+                adapter.loadMoreEnd();
             }
         }
     }
@@ -123,16 +127,7 @@ public class SecondFragment extends LazyLoadFragment implements OnSuccessAndFail
     @Override
     public void onLoadMoreRequested() {
         pageIndex++;
-        lvList.post(new Runnable() {
-            @Override
-            public void run() {
-                if(pageIndex>pageCount){
-                    adapter.loadMoreEnd();
-                }else {
-                    loadData();
-                }
-            }
-        });
+        loadData();
     }
 
     @Override

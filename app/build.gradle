@@ -48,6 +48,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/values-v19'] } }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

@@ -2,7 +2,9 @@ package cn.xll.com.fragment;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,7 +50,7 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
     int pageIndex=1;
     int pageCount;
 
-    private List<CustomerInfo.ObjBean>list=new ArrayList<CustomerInfo.ObjBean>();
+    //private List<CustomerInfo.ObjBean>list=new ArrayList<CustomerInfo.ObjBean>();
     private AllCustomerAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,10 +72,14 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
         titleBar.withTitle("客户信息",0);
         titleBar.setTitleBarBackground(R.color.yellow);
         titleBar.setMiddleTextColor(R.color.write);
-        adapter=new AllCustomerAdapter(R.layout.item_all_info,list,getContext(),false);
+        adapter=new AllCustomerAdapter(R.layout.item_all_info,new ArrayList<CustomerInfo.ObjBean>(),getContext(),false);
         adapter.setOnLoadMoreListener(this);
+        adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+
+
         lvList.setLayoutManager(new LinearLayoutManager(getActivity()));
         lvList.setAdapter(adapter);
+        swipeList.setColorSchemeColors(Color.rgb(47, 223, 189));
         swipeList.setOnRefreshListener(this);
         adapter.openLoadAnimation();
 
@@ -96,14 +102,17 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
         dialog.cancel();
         CustomerInfo customerInfo=GsonUtils.fromJson(data,CustomerInfo.class);
         if(customerInfo!=null&&customerInfo.getObj()!=null){
+            pageCount=customerInfo.getPageCount();
             if(pageIndex==1){
-                list.clear();
-                list.addAll(customerInfo.getObj());
-                adapter.notifyDataSetChanged();
+                swipeList.setRefreshing(false);
+                adapter.setNewData(customerInfo.getObj());
             }else{
-                list.addAll(customerInfo.getObj());
-                adapter.addData(list);
+                adapter.addData(customerInfo.getObj());
                 adapter.loadMoreComplete();
+            }
+
+            if(pageIndex>=pageCount){
+                adapter.loadMoreEnd();
             }
         }
     }
@@ -117,23 +126,13 @@ public class FirstFragment extends LazyLoadFragment implements OnSuccessAndFailS
     @Override
     public void onLoadMoreRequested() {
         pageIndex++;
-        lvList.post(new Runnable() {
-            @Override
-            public void run() {
-                if(pageIndex>pageCount){
-                    adapter.loadMoreEnd();
-                }else {
-                    loadData();
-                }
-            }
-        });
+        loadData();
     }
 
     @Override
     public void onRefresh() {
         pageIndex=1;
         loadData();
-        swipeList.setRefreshing(false);
     }
     @Subscribe(threadMode = ThreadMode.MAIN) //在ui线程执行
     public void onDataSynEvent(DataSynEvent event) {

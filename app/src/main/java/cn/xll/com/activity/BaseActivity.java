@@ -1,12 +1,17 @@
 package cn.xll.com.activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import cn.xll.com.R;
+import cn.xll.com.utils.StatusBarCompat;
 
 /**
  * Created by xll on 2015/8/24.

@@ -12,7 +12,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">false</item>
+         <item name="android:windowIsTranslucent">false</item>
     </style>
     <!--activity的全局关闭动画设置  -->
     <style name="AnimationActivity" parent="@android:style/Animation.Translucent">
@@ -292,5 +292,10 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/red_low_1</item>
         <item name="android:textSize">11sp</item>
+    </style>
+
+<!-- 状态栏沉浸-->
+    <style name="TranslucentTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
 </resources>
