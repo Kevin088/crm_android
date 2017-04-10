@@ -30,11 +30,12 @@ public class SupoffApp extends Application {
 		/**
 		 * Log初始化
 		 */
-		if(SupoffUtils.isApkDebugable(getContext())){
-			Logger.init("app").logLevel(LogLevel.FULL);
-		}else{
-			Logger.init("app").logLevel(LogLevel.NONE);
-		}
+//		if(SupoffUtils.isApkDebugable(getContext())){
+//			Logger.init("app").logLevel(LogLevel.FULL);
+//		}else{
+//			Logger.init("app").logLevel(LogLevel.NONE);
+//		}
+		Logger.init("app").logLevel(LogLevel.FULL);
 	}
 
 

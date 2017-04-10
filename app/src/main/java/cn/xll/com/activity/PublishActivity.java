@@ -154,7 +154,7 @@ public class PublishActivity extends BaseActivity implements TitleBarView.OnTitl
             broadbandSatisfyValue=bean.getBroadbandSatisfy();
             isBroadbandFusionValue=bean.getIsBroadbandFusion();
             tvValue=bean.getTv();
-            tvSatisfyValue=bean.getTv();
+            tvSatisfyValue=bean.getTvSatisfy();
 
             objBean.setId(bean.getId());
 
